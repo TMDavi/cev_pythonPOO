@@ -10,11 +10,14 @@ class Gamer:
         self.jogos_favoritos = list()
 
     def add_jogos(self, jogo):
-        self.jogos_favoritos.append(str(jogo))
+        return self.jogos_favoritos.append(str(jogo))
+
+    def organiza(self):
+        return sorted(self.jogos_favoritos)
 
     def extrai_jogos(self):
         string = ""
-        for j in self.jogos_favoritos:
+        for j in self.organiza():
             string += f":video_game: {j}\n"
 
         return string
@@ -34,7 +37,7 @@ j1.ficha()
 
 j2= Gamer("Alyssa Liu", "Bode motorizado")
 j2.add_jogos("Metro Exodus")
-j2.add_jogos("MOonster Hunter Wilds")
+j2.add_jogos("Monster Hunter Wilds")
 j2.add_jogos("The return of Obra Dinn")
 j2.add_jogos("Peak")
 j2.ficha()

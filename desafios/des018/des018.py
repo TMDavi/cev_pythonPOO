@@ -25,13 +25,13 @@ class Churrasco:
         return self.precototal() / self.quant
 
     def analisar(self):
-        linha1 = f"Analisando [green]{self.titulo}[/] com [blue]{self.quant}[/] convidados"
-        linha2 = f"Cada participante comerá {self.quant_carne_por_pessoa} Kg de carne e cada quilo de carne custa R${self.quilo_carne:,.2f}"
-        linha3 = f"Recomendo comprar [blue]{self.carnetotal():,.2f}[/] Kg de carne"
-        linha4 = f"O custo total será de [blue]R${self.precototal():,.2f}[/]"
-        linha5 = f"Cada pessoa deverá colaborar com [yellow]R${self.precopessoa():,.2f}[/]"
+        conteudo = f"Analisando [green]{self.titulo}[/] com [blue]{self.quant}[/] convidados\n"
+        conteudo += f"Cada participante comerá {self.quant_carne_por_pessoa} Kg de carne e cada quilo de carne custa R${self.quilo_carne:,.2f}\n"
+        conteudo += f"Recomendo comprar [blue]{self.carnetotal():,.2f}[/] Kg de carne\n"
+        conteudo += f"O custo total será de [blue]R${self.precototal():,.2f}[/]\n"
+        conteudo += f"Cada pessoa deverá colaborar com [yellow]R${self.precopessoa():,.2f}[/]"
 
-        painel = Panel(f"{linha1}\n{linha2}\n{linha3}\n{linha4}\n{linha5}", title=self.titulo)
+        painel = Panel.fit(f"{conteudo}", title=self.titulo)
 
         print(painel)
 
