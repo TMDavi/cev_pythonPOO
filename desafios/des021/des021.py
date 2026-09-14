@@ -17,6 +17,9 @@ class Caneta:
         resultado = tradutor.translate(self.cor)
         return resultado.lower()
 
+    def tampar(self):
+        self.destampado = 0
+        return self.destampado
     def destampar(self):
         self.destampado = 1
         return self.destampado
@@ -26,24 +29,22 @@ class Caneta:
 
     def escrever(self, mensagem):
         if self.destampado == 1:
-            print(f"[{self.traduzcor()}]{mensagem}[/]")
+            print(f"[{self.traduzcor()}]{mensagem}[/] ",end='')
         else:
             print("[red]A caneta ainda está tampada![/]")
 
-
-
 c1 = Caneta("amarelo")
-c1.destampar()
-c1.escrever("Olá mundo!")
-c1.quebrarlinha()
-c1.escrever("Aprendendo a programar em POO")
-
 c2 = Caneta("roxo")
+c3 = Caneta("vermelho")
+
+
+c1.destampar()
 c2.destampar()
-c2.escrever("Criando umas bobeiras por aqui")
-c2.quebrarlinha(5)
-c2.escrever("Escrevendo na cor roxa")
+c3.destampar()
 
+c1.escrever("Olá mundo!")
+c2.escrever("Aprendendo POO!")
+c2.quebrarlinha(2)
 
-#tradutor = Translator(from_lang="en", to_lang="pt")
-#resultado = tradutor.translate(self.cor)
+c3.tampar()
+c3.escrever("Quebrando linhas!")
