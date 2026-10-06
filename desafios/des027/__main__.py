@@ -12,6 +12,7 @@ def main():
     p2.curar()
 
     p2.atacar(p1, 4000)
+    p2.atacar(p1, 3000)
 
 
 if __name__ == "__main__":

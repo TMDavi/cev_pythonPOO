@@ -25,11 +25,14 @@ class Personagem(ABC):
         porcent_forca = random.randint(1,101)
         dano = forca*(porcent_forca/100)
 
-        #Imprime mensagem na tela
-        print(f"[green]{self.nome}[/][blue]({self.vida})[/] atacou [red]{alvo.nome}[/][blue]({alvo.vida})[/] com um [blue]{self.acessar_golpe()}[/] de força [blue]{forca}[/]")
-        print(f"[blue]{alvo.nome}[/] recebeu dano de [red]{dano}[/]!")
-        #Alvo recebe o dano
-        alvo.receber_dano(dano)
+        if not Personagem.morto:
+            #Imprime mensagem na tela
+            print(f"[green]{self.nome}[/][blue]({self.vida})[/] atacou [red]{alvo.nome}[/][blue]({alvo.vida})[/] com um [blue]{self.acessar_golpe()}[/] de força [blue]{forca}[/]")
+            print(f"[blue]{alvo.nome}[/] recebeu dano de [red]{dano}[/]!")
+            #Alvo recebe o dano
+            alvo.receber_dano(dano)
+        else:
+            print(f"[red]{alvo.nome} está morto! Não pode mais receber dano[/]")
 
     def receber_dano(self, dano):
         self.vida = self.vida - dano
