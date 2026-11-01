@@ -6,10 +6,10 @@ class ContaBancaria:
     """
     Cria uma conta bancaria e permite fazer saques e depósitos
     """
-    def __init__(self, id, nome, __saldo = 0, chave = ''):
+    def __init__(self, id:int, nome:str, saldo:float = 0, chave:str = ''):
         self._id = id 
         self._titular = nome 
-        self.__saldo = __saldo 
+        self.__saldo = saldo 
 
         if chave == '':
             self.__hash = self.pede_senha()
@@ -21,6 +21,7 @@ class ContaBancaria:
 
     def __str__(self):
         return f"Estado atual da conta: {self.__dict__}"
+
     #NOME
     @property
     def nome(self):

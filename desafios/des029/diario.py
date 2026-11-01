@@ -9,7 +9,8 @@ class Diario:
         raise PermissionError("Ninguém pode ver a senha")
 
     def escrever(self, msg):
-        self.__segredos.append(msg)
+        if isinstance(msg, str) and len(msg) > 0:
+            self.__segredos.append(msg.strip())
 
     def ler(self, senha=None):
         if senha == self.__senha:
